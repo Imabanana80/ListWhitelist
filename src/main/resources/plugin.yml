@@ -1,0 +1,10 @@
+name: ListWhitelist
+version: '${project.version}'
+main: com.imabanana80.listwhitelist.ListWhitelist
+api-version: '1.20'
+authors: [Imabanana80]
+description: Whitelist people from lists
+commands:
+  listwhitelist:
+    description: whitelist players from a list
+    permission: Listwhitelist
