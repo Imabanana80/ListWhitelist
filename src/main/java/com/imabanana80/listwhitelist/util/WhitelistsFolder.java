@@ -8,14 +8,15 @@ import java.util.Objects;
 public class WhitelistsFolder {
     public static void createWhitelistsFolder() {
         if (Bukkit.getPluginsFolder().listFiles() != null){
-            Boolean exists = false;
+            boolean exists = false;
             for (File f : Objects.requireNonNull(Bukkit.getPluginsFolder().listFiles())) {
-                if (f.getName().equals("whitelists\\")){
+                if (f.getName().equals("whitelists" + File.separator)) {
                     exists = true;
+                    break;
                 }
             }
             if (!exists){
-                new File(Bukkit.getPluginsFolder() + "\\whitelists\\").mkdirs();
+                new File(Bukkit.getPluginsFolder() + File.separator + "whitelists" + File.separator).mkdirs();
             }
         }
     }

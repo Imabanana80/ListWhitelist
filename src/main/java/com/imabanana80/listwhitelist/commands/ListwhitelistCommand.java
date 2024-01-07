@@ -16,8 +16,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +28,7 @@ public class ListwhitelistCommand implements CommandExecutor, TabExecutor {
                 if (strings[1] != null) {
                     BufferedReader reader = null;
                     try {
-                        String path = Bukkit.getPluginsFolder().getPath() + "\\whitelists\\" + strings[1];
+                        String path = Bukkit.getPluginsFolder().getPath() + File.separator + "whitelists" + File.separator + strings[1];
                         reader = new BufferedReader(new FileReader(path));
                     } catch (FileNotFoundException ignored) {}
                     if (reader != null) {
@@ -78,7 +76,7 @@ public class ListwhitelistCommand implements CommandExecutor, TabExecutor {
         if (strings.length == 1){
             return Arrays.asList("add", "remove");
         } else if (strings.length == 2){
-            File whitelistsfolder = new File(Bukkit.getPluginsFolder().getPath() + "\\whitelists\\");
+            File whitelistsfolder = new File(Bukkit.getPluginsFolder().getPath() + File.separator + "whitelists" + File.separator);
             List<String> fileList = new ArrayList<>();
             for (File file : whitelistsfolder.listFiles()){
                 fileList.add(file.getName());
